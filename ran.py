@@ -1,9 +1,13 @@
 from flask import *
 import pymongo
 from pymongo import MongoClient
-
+import datetime
+from datetime import date
 
 import random
+
+global today
+today= ''
 
 cluster = 'mongodb+srv://ajaykumaar:ajay@cluster0.07d2o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 app=Flask(__name__)
@@ -40,7 +44,20 @@ def check(prev_list,list1,list2):
 
 @app.route('/')
 def home():
-    list1, list2= get_list()
+    global today
+    #today =''
+    t=str(date.today())
+    if t != today:
+        today = t
+        print(t)
+        print(today)
+        list1, list2= get_list()  
+    else:
+        prev_list = table.find()
+        list1, list2=[],[]
+        for l in prev_list:
+            list1.append(l['person1'])
+            list2.append(l['person2'])
     
     prev_list = table.find()
     table.remove( { } );
