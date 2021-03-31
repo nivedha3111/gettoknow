@@ -2,27 +2,46 @@
     
 <head>
     <style>
-        h1 {text-align: center;}
+        h1{
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFAFA;
+            }
         table {
           font-family: arial, sans-serif;
           border-collapse: collapse;
           width: 60%;
         }
+        th{
+            background-color:#00CED1;
+        }
         
         td, th {
-          border: 1px solid #dddddd;
+          border: 1px solid white;
           text-align: center;
+          /* color: black; */
           padding: 8px;
         }
         
-        tr:nth-child(even) {
-          background-color: #dddddd;
+        /* tr:nth-child(even) */
+        tr:nth-child(even){
+          background-color: #AFEEEE;
+          /* color: black; */
+        }
+
+        tr:nth-child(odd){
+          background-color: #AFEEEE;
+          /* color: black; */
         }
 
         .center{
             margin-left: auto;
             margin-right: auto;
         }
+        body{ 
+             background-color: black;
+        } 
+
         /* body  { */
             /* background-image: url("blue7.jpeg"); */
   /* background-color: #cccccc; */
@@ -38,12 +57,12 @@
 </head>
 <body>
     <div style="background-image: url('ppl.jpeg');"></div>
-    <h1>get to know your co worker</h1>
+    <h1>Come, Mingle & Get to know your colleague </h1>
     {% if meet_l[0] %}
     <table class="center">
         <tr class="table-primary">
             <th >Person1</th>
-            <th>person2</th>
+            <th>Person2</th>
         </tr>
     {%for names in meet_l %}
     <tr class="table-info">
